@@ -1,0 +1,147 @@
+$grey-bg: #23272a;
+$blurple: #7289da;
+$green: #00fa9a;
+$font-family-text: "acumin-pro", sans-serif;
+$color-black: rgb(0, 0, 0);
+$color-white: rgb(240, 244, 255);
+$background-1: rgb(50, 50, 53);
+
+* {
+  margin: 0;
+}
+
+.first-div-container {
+  background: url("https://i.ibb.co/kGQzYYL/thumb-1920-909912.png") no-repeat;
+  height: 100vh;
+}
+
+.h1-tlt {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 35px;
+  color: #fff;
+  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+  position: relative;
+  top: 50px;
+}
+
+.btn-1 {
+  cursor: pointer;
+  margin: 2%;
+  height: 44px;
+  border: none;
+  border-radius: 20px;
+  width: 460px;
+  color: #fff;
+  background-color: $blurple;
+  outline: none;
+  font-size: 16px;
+}
+
+.img1 {
+  height: 200px;
+  top: 45%;
+  margin-left: 5%;
+  -webkit-animation-name: float-landing-2wj_IS;
+  animation-name: float-landing-2wj_IS;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 110px;
+}
+
+@keyframes float-landing-2wj_IS {
+  0% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(5px, -14px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 4px, 0);
+    transform: translate3d(0, 4px, 0);
+  }
+}
+
+@keyframes slide-in-left-alt {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.ImageSelect-container {
+  background: white linear-gradient(135deg, $background-1, $color-black);
+  height: 100vh;
+  -webkit-animation: slide-in-left-alt 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: slide-in-left-alt 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  & .ImageSelect-container-Title {
+    font-family: $font-family-text;
+    color: $color-white;
+    font-size: 31px;
+    position: relative;
+    top: 20px;
+    font-size: 24px;
+  }
+  & .ImageSelectTLT {
+    display: flex;
+    justify-content: center;
+  }
+  & .appearImage {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 60px;
+  }
+  & .selectImageAppear {
+    margin: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+}
+
+.btn-containerImage {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  justify-content: center;
+}
+
+.grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.grow:hover,
+.grow:focus,
+grow:after {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  border: 2px solid #00fa9a;
+}
+
+ .active {
+  border: 2px solid #00fa90;
+}
