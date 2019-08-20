@@ -8,10 +8,13 @@ export default function ChatPage({ name, userIMG }) {
 
   const hour = new Date().getHours();
   const minutes = new Date().getMinutes()
-  
+
   function messageSend(e) {
+    e.preventDefault()
+
     if (e.keyCode !== 13) return;
 
+    setMessages([...messages, { id: Math.floor(Math.random() * 1000), text: input }])
   }
   return (
     <div className="mainAll">
@@ -65,7 +68,7 @@ export default function ChatPage({ name, userIMG }) {
               return <ul className="ul-div">
                 <img src={userIMG} className="chat-image" alt="userImage/" />
                 <span className="span-chat">
-                  {name}
+                  {chat.text}
                   <span className="chat-hour"> today {hour}:{minutes}</span>
                 </span>
                 <span className="conversation"></span>
@@ -73,16 +76,15 @@ export default function ChatPage({ name, userIMG }) {
                 </div>
               </ul>
             })}
-            <div className="input-div">
+            <form className="input-div" onSubmit={messageSend}>
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={ e => setMessages([...messages, {id: Math.floor(Math.random() * 1000),  text: input}])}
-                className="input" 
+                className="input"
                 placeholder="Oque esta acontecendo?"
                 maxLength="100"
               />
-            </div>
+            </form>
           </div>
           <div className="online">
             <img src={userIMG} className="last-circle" alt="last" />
