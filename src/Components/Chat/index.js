@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import socket from 'socket.io-client';
 
 import '../SASS/chat.scss';
 
@@ -12,10 +13,24 @@ export default function ChatPage({ name, userIMG }) {
   function messageSend(e) {
     e.preventDefault()
 
-    if (e.keyCode !== 13) return;
+    if (!input) return;
 
     setMessages([...messages, { id: Math.floor(Math.random() * 1000), text: input }])
+
+    setInput('')
   }
+
+  function loadRealTime() {
+    const io = socket('https://real-time-chat007.herokuapp.com/');
+
+    io.on('newMessage', data => {
+      setMessages(data);
+    });
+  }
+
+  useEffect(() => {
+    loadRealTime();
+  });
   return (
     <div className="mainAll">
       <div className="container">
@@ -68,15 +83,16 @@ export default function ChatPage({ name, userIMG }) {
               return <ul className="ul-div">
                 <img src={userIMG} className="chat-image" alt="userImage/" />
                 <span className="span-chat">
-                  {chat.text}
+                  {name}
                   <span className="chat-hour"> today {hour}:{minutes}</span>
                 </span>
-                <span className="conversation"></span>
-                <div>
+                <div className="divConversation">
+                <span className="conversation">{chat.text}</span>
                 </div>
               </ul>
             })}
             <form className="input-div" onSubmit={messageSend}>
+              <input type="file" />
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}

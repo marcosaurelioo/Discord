@@ -227,11 +227,10 @@ body {
   background: $background-main;
   position: relative;
   top: 59px;
-  border-bottom: solid 1px #141214;
   left: -320px;
   width: 660px;
   height: 600px;
-  overflow: auto;
+  overflow: unset;
   & .input-div {
     position: relative;
     position: absolute;
@@ -289,8 +288,9 @@ body {
      position: relative;
      left: 42px;
      width: 90%;
-     font-weight: 545;
+     font-weight: 545;     
    }
+
 }
 
 .online {
