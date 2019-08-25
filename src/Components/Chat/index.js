@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import socket from 'socket.io-client';
+import api from '../../Services/index';
 
-import '../SASS/chat.scss';
+import {
+  Main,
+  VerticalBar,
+  BlueCircles,
+  ChannelsBar,
+  Channels,
+  UserSettingsContainer,
+  ChatBar,
+  Conversation
+} from './styles';
+import '../SASS/chats.scss';
 
 export default function ChatPage({ name, userIMG }) {
   const [messages, setMessages] = useState([]);
@@ -12,106 +23,88 @@ export default function ChatPage({ name, userIMG }) {
 
   function messageSend(e) {
     e.preventDefault()
+    const nickname = name;
+
+    const data = { msg: input, nickname: name };
 
     if (!input) return;
 
-    setMessages([...messages, { id: Math.floor(Math.random() * 1000), text: input }])
+    setMessages([...messages, { id: Math.floor(Math.random() * 1000), text: input }]);
 
-    setInput('')
-  }
+    api.post(`message/${nickname}`, data);
+
+    setInput('');
+  };
 
   function loadRealTime() {
-    const io = socket('https://real-time-chat007.herokuapp.com/');
+    const io = socket('http://localhost:3333/');
 
     io.on('newMessage', data => {
-      setMessages(data);
+      setMessages(data)
     });
-  }
+  };
 
   useEffect(() => {
     loadRealTime();
   });
   return (
-    <div className="mainAll">
-      <div className="container">
-        <div className="nav">
-          <div className="second-nav">
-            <div className="initial-circle"></div>
-            <div className="initial-circle"></div>
-            <div className="initial-circle"></div>
-            <div className="initial-circle"></div>
-          </div>
+    <Main>
+      <VerticalBar>
+        <BlueCircles />
+        <BlueCircles />
+        <BlueCircles />
+        <BlueCircles />
+      </VerticalBar>
+      <ChannelsBar>
+        <h1 className="titles">General</h1>
+        <div>
+          <h1 className="channelTitle">Text channels</h1>
         </div>
-        <div className="user-nav">
-          <div className="nav-name">
-            <h1 className="h1-container">Server</h1>
-          </div>
-          <div className="channel-group">
-            <h1 className="channel-tlt1">Text channels</h1>
-            <div className="groups">
-              <span className="span">General</span>
-              <span className="span">Games</span>
-              <span className="span">Away</span>
-            </div>
-            <h1 className="channel-tlt2">Voice channels</h1>
-            <div className="groups">
-              <span className="span">General</span>
-              <span className="span">Games</span>
-              <span className="span">Away</span>
-            </div>
-          </div>
-          <div className="user-container">
-            <div className="name-circle" />
-            <div className="name-circle2" />
-            <div className="name-circle3" />
-            <img src={userIMG} className="server-status" alt="first-img" />
-            <div className="green-circle2" />
-            <span className="user-name">{name}</span>
-          </div>
+        <Channels>
+          <span className="channels">General</span>
+          <span className="channels">Off-topic</span>
+          <span className="channels">Tech</span>
+        </Channels>
+        <div>
+          <h1 className="channelTitle">Voice channels</h1>
         </div>
-        <div className="general-nav">
-          <span className="general-span">General
-          <div className="little-circles">
-              <div className="circles0" />
-              <div className="circles1" />
-              <div className="circles2" />
-              <input className="inputView" />
-            </div>
-          </span>
-          <div className="chat">
-            {messages.map(chat => {
-              return <ul className="ul-div">
-                <img src={userIMG} className="chat-image" alt="userImage/" />
-                <span className="span-chat">
-                  {name}
-                  <span className="chat-hour"> today {hour}:{minutes}</span>
-                </span>
-                <div className="divConversation">
-                <span className="conversation">{chat.text}</span>
-                </div>
-              </ul>
-            })}
-            <form className="input-div" onSubmit={messageSend}>
-              <input type="file" />
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                className="input"
-                placeholder="Oque esta acontecendo?"
-                maxLength="100"
-              />
-            </form>
-          </div>
-          <div className="online">
-            <img src={userIMG} className="last-circle" alt="last" />
-            <span className="online-span">Online</span>
-            <div className="users">
-              <span className="online-username">{name}</span>
-              <div className="green-circle" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <Channels>
+          <span className="channels">General</span>
+          <span className="channels">Gaming</span>
+          <span className="channels">Musics</span>
+        </Channels>
+        <UserSettingsContainer>
+          <img src={userIMG} className="userSettingsImage" alt="" />
+          <div className="greenCircle" />
+          <span className="userName">{name}</span>
+        </UserSettingsContainer>
+      </ChannelsBar>
+      <ChatBar>
+        <ChatBar>
+          <span className="chatTitle">Chat</span>
+        </ChatBar>
+        <Conversation>
+          {messages.map(chat => (
+            <ul className="chatDiv">
+              <img className="chatImage" src={userIMG} alt="" />
+              <span className="hour">Today at {hour}:{minutes}</span>
+              <span className="chatName">Marcos Aurelio</span>
+              <div className="divConversation">
+                <span className="messages">{chat.text}</span>
+              </div>
+            </ul>
+          ))}
+        </Conversation>
+        <form onSubmit={messageSend} className="inputDiv">
+          <input
+            placeholder="What happening?"
+            className="input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            maxLength="50"
+          />
+        </form>
+      </ChatBar>
+    </Main >
   );
 }

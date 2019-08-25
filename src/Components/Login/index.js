@@ -28,7 +28,7 @@ export default function Login({ history, name, setname }) {
             onChange={(e) => setname(e.target.value)}
             placeholder="Name"
             type="text"
-            maxLength="10"
+            maxLength="15"
           />
           <button onClick={handleSubmit} className="btn-1">Sign-in</button>
         </InputContainer>

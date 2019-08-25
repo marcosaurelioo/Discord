@@ -1,0 +1,153 @@
+$background-header: rgb(40, 42, 46);
+$background-nav: rgb(32, 34, 36);
+$background-header-footer: rgb(46, 48, 54);
+$background-main: rgb(54, 56, 62);
+$color-black: rgb(26, 26, 26);
+$color-blue: rgb(114, 136, 218);
+$color-green: rgb(68, 182, 130);
+$color-white: rgb(240, 244, 255);
+$font-family-text: "acumin-pro", sans-serif;
+
+p {
+  cursor: pointer;
+}
+
+.titles {
+  font-family: $font-family-text;
+  color: $color-white;
+  font-size: 26px;
+  margin-bottom: 21px;
+  padding: 8px;
+}
+
+.channelTitle {
+  font-family: $font-family-text;
+  color: $color-white;
+  font-size: 26px;
+  margin-left: 13px;
+}
+
+.channels {
+  font-family: $font-family-text;
+  color: $color-white;
+  font-size: 19px;
+  height: 25px;
+  padding: 18px;
+  width: 160px;
+}
+
+.channels:hover {
+  background: $background-main;
+  border-radius: 6px;
+}
+
+.userSettingsImage {
+  height: 50px;
+  width: 50px;
+  background: $color-blue;
+  border: none;
+  border-radius: 100%;
+  margin-left: 9px;
+  margin-top: 9px;
+}
+
+.userName {
+  font-family: $font-family-text;
+  color: $color-white;
+  display: flex;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.greenCircle {
+  background: $color-green;
+  height: 11px;
+  width: 11px;
+  border-radius: 100%;
+  margin-top: 45px;
+  position: relative;
+  right: 12px;
+}
+
+.chatTitle {
+  font-family: $font-family-text;
+  color: $color-white;
+  font-size: 23px;
+  margin: 30px;
+  position: relative;
+  top: 20px;
+}
+
+.inputDiv {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: $background-main;
+  height: 115%;
+}
+
+.input {
+  position: relative;
+  top: 10px;
+  width: 950px;
+  height: 30px;
+  background: $background-header-footer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  color: $color-white;
+  font-family: $font-family-text;
+  font-weight: bold;
+}
+
+.chatImage {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: $color-blue;
+  border: none;
+}
+
+.chatName {
+    color: $color-white;
+    font-family: $font-family-text;
+    font-weight: bold;
+    font-size: 17px;
+    display: flex;
+    align-self: center;
+    position: relative;
+    right: 65px;
+    top: -5px;
+
+}
+
+.chatDiv {
+    display: flex;
+    border-top: 2px solid $background-header-footer;
+    padding: 15px;
+}
+
+.hour {
+    font-family: $font-family-text;
+    color: $color-black;
+    font-weight: bold;
+    font-size: 11px;
+    position: relative;
+    left: 70px;
+    top: -5px;
+}
+
+.messages {
+    color: $color-white;
+    font-family: $font-family-text;
+    font-size: 17px;
+}
+.divConversation{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    right: 188px;
+    top: -2px;
+}
