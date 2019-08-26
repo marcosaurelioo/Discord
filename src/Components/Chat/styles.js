@@ -6,18 +6,14 @@ export const VerticalBar = styled.div`
    width: 65px;
    display: flex;
    flex-direction: column;
+
+   @media screen and (max-width: 848px) {
+      display: none;
+   }
 `;
 
 export const Main = styled.div`
  display: flex;
-`;
-
-export const BlueCircles = styled.div`
-   background: #7289DA;
-   height: 40px;
-   width: 40px;
-   border-radius: 100%; 
-   margin: 10px;
 `;
 
 export const ChannelsBar = styled.div`
@@ -27,6 +23,9 @@ export const ChannelsBar = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: flex-end;
+   @media screen and (max-width: 848px) {
+      display: none;
+   }
 `;
 
 export const Channels = styled.div`
@@ -35,6 +34,7 @@ export const Channels = styled.div`
    cursor: pointer;
    margin-left: 12px;
    margin: 19px;
+   
 `;
 
 export const UserSettingsContainer = styled.div`
@@ -55,6 +55,19 @@ export const Conversation = styled.div`
    background: rgb(54, 56, 62);
    height: 80vh;
    overflow: auto;
+   ::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 16px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 16px rgba(0,0,0,0.5); 
+}
 `
 
 

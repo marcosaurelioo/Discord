@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import socket from 'socket.io-client';
-import api from '../../Services/index';
 
 import {
   Main,
   VerticalBar,
-  BlueCircles,
   ChannelsBar,
   Channels,
   UserSettingsContainer,
@@ -21,17 +19,21 @@ export default function ChatPage({ name, userIMG }) {
   const hour = new Date().getHours();
   const minutes = new Date().getMinutes()
 
+  const messagesEndRef = React.createRef(null);
+
+  function scrollToBottom() {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+    };
+  };
+
   function messageSend(e) {
     e.preventDefault()
-    const nickname = name;
-
-    const data = { msg: input, nickname: name };
 
     if (!input) return;
 
     setMessages([...messages, { id: Math.floor(Math.random() * 1000), text: input }]);
 
-    api.post(`message/${nickname}`, data);
 
     setInput('');
   };
@@ -39,21 +41,30 @@ export default function ChatPage({ name, userIMG }) {
   function loadRealTime() {
     const io = socket('http://localhost:3333/');
 
-    io.on('newMessage', data => {
+    if (name.length && messages.length) {
+      var messageData = {
+        author: name,
+        message: messages,
+      }
+    }
+    io.emit('connection', messageData);
+
+   io.on('newMessage', data => {
       setMessages(data)
-    });
+    })
   };
 
   useEffect(() => {
+    scrollToBottom();
     loadRealTime();
   });
   return (
     <Main>
       <VerticalBar>
-        <BlueCircles />
-        <BlueCircles />
-        <BlueCircles />
-        <BlueCircles />
+        <div className="blueCircles" />
+        <div className="blueCircles" />
+        <div className="blueCircles" />
+        <div className="blueCircles" />
       </VerticalBar>
       <ChannelsBar>
         <h1 className="titles">General</h1>
@@ -87,9 +98,9 @@ export default function ChatPage({ name, userIMG }) {
           {messages.map(chat => (
             <ul className="chatDiv">
               <img className="chatImage" src={userIMG} alt="" />
-              <span className="hour">Today at {hour}:{minutes}</span>
-              <span className="chatName">Marcos Aurelio</span>
-              <div className="divConversation">
+              <div ref={messagesEndRef} className="divConversation">
+                <span className="hour">Today at {hour}:{minutes}</span>
+                <span className="chatName">{name}</span>
                 <span className="messages">{chat.text}</span>
               </div>
             </ul>
