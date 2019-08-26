@@ -41,22 +41,22 @@ export default function ChatPage({ name, userIMG }) {
   function loadRealTime() {
     const io = socket('http://localhost:3333/');
 
-    io.on("connection", () => {
-      io.emit("newMessage", {
-        name: name,
-        message: messages
-      })
+    io.emit('newMessage', {
+      named: name,
+      message: messages,
+      img: userIMG
     });
 
-    io.on("broadcast_message", data => {
-      messagesEndRef.current(data);
+    io.on('broadcast_message', data => {
+      setMessages(data)
     });
-  }
+  };
 
   useEffect(() => {
     scrollToBottom();
     loadRealTime();
   });
+
   return (
     <Main>
       <VerticalBar>
@@ -97,7 +97,7 @@ export default function ChatPage({ name, userIMG }) {
           {messages.map(chat => (
             <ul className="chatDiv">
               <img className="chatImage" src={userIMG} alt="" />
-              <div ref={messagesEndRef} className="divConversation">
+              <div id="div.chat" ref={messagesEndRef} className="divConversation">
                 <span className="hour">Today at {hour}:{minutes}</span>
                 <span className="chatName">{name}</span>
                 <span className="messages">{chat.text}</span>
