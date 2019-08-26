@@ -41,18 +41,17 @@ export default function ChatPage({ name, userIMG }) {
   function loadRealTime() {
     const io = socket('http://localhost:3333/');
 
-    if (name.length && messages.length) {
-      var messageData = {
-        author: name,
-        message: messages,
-      }
-    }
-    io.emit('connection', messageData);
+    io.on("connection", () => {
+      io.emit("newMessage", {
+        name: name,
+        message: messages
+      })
+    });
 
-   io.on('newMessage', data => {
-      setMessages(data)
-    })
-  };
+    io.on("broadcast_message", data => {
+      messagesEndRef.current(data);
+    });
+  }
 
   useEffect(() => {
     scrollToBottom();
