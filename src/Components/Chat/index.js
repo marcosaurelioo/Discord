@@ -22,6 +22,14 @@ export default function ChatPage({ name, userIMG }) {
 
   const messagesEndRef = React.createRef(null);
 
+  useEffect(() => {
+    scrollToBottom();
+  });
+
+  useEffect(() => {
+    loadRealTime();
+  }, [])
+
   function scrollToBottom() {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -39,17 +47,13 @@ export default function ChatPage({ name, userIMG }) {
   };
 
   function loadRealTime() {
-    const io = socket('http://localhost:3333/');
+    const io = socket('https://real-time-chat007.herokuapp.com/');
 
     io.on('newMessage', data =>
       setMessages(data)
     )
   };
 
-  useEffect(() => {
-    scrollToBottom();
-    loadRealTime();
-  });
 
   return (
     <Main>
@@ -88,13 +92,13 @@ export default function ChatPage({ name, userIMG }) {
           <span className="chatTitle">Chat</span>
         </ChatBar>
         <Conversation>
-          {messages.map(chat => (
-            <ul className="chatDiv">
-              <img className="chatImage" src={userIMG} alt="" />
+          {messages.map((chat, index) => (
+            <ul className="chatDiv" key={index}>
+              <img className="chatImage" src={chat.img} alt="" />
               <div id="div.chat" ref={messagesEndRef} className="divConversation">
                 <span className="hour">Today at {hour}:{minutes}</span>
-                <span className="chatName">{name}</span>
-                <span className="messages">{chat.text}</span>
+                <span className="chatName">{chat.nickname}</span>
+                <span className="messages">{chat.msg}</span>
               </div>
             </ul>
           ))}
