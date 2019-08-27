@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import socket from 'socket.io-client';
+import api from '../../Services/index';
 
 import {
   Main,
@@ -32,8 +33,7 @@ export default function ChatPage({ name, userIMG }) {
 
     if (!input) return;
 
-    setMessages([...messages, { id: Math.floor(Math.random() * 1000), text: input }]);
-
+    api.post(`/message`, { nickname: name, msg: input, img: userIMG });
 
     setInput('');
   };
@@ -41,15 +41,9 @@ export default function ChatPage({ name, userIMG }) {
   function loadRealTime() {
     const io = socket('http://localhost:3333/');
 
-    io.emit('newMessage', {
-      named: name,
-      message: messages,
-      img: userIMG
-    });
-
-    io.on('broadcast_message', data => {
+    io.on('newMessage', data =>
       setMessages(data)
-    });
+    )
   };
 
   useEffect(() => {
