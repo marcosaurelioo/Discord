@@ -37,7 +37,7 @@ export default function ChatPage({ name, userIMG }) {
       setMessages(response.data);
     } catch (e)
      {
-      alert("Tua internet é uma merda brother!")
+      alert("Conexao com a API mal sucedida.")
     }
   };
 
