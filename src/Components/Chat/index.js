@@ -30,6 +30,22 @@ export default function ChatPage({ name, userIMG }) {
     loadRealTime();
   }, [])
 
+  async function loadAllMessages() {
+    try {
+      const response = await api.get('/mensagens');
+   
+      setMessages(response.data);
+    } catch (e)
+     {
+      alert("Tua internet é uma merda brother!")
+    }
+  };
+
+  useEffect(() => {
+    loadAllMessages();
+  }, [])
+
+
   function scrollToBottom() {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
