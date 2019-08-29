@@ -69,7 +69,7 @@ export default function ChatPage({ name, userIMG }) {
 
     io.on('newMessage', data =>
       setMessages(data)
-    )
+    );
   };
 
 
