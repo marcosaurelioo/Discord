@@ -55,7 +55,9 @@ export default function ChatPage({ name, userIMG }) {
   function messageSend(e) {
     e.preventDefault()
 
-    if (!input) return;
+    if (!input) return alert('Faça a sua inscriçao!');
+    if (!name) return alert('Faça a sua inscriçao!');
+    if (!userIMG) return alert('Faça a sua inscriçao!');
 
     api.post(`/message`, { nickname: name, msg: input, img: userIMG });
 
