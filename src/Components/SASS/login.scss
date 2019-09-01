@@ -11,10 +11,14 @@ $background-1: rgb(50, 50, 53);
   padding: 0;
 }
 
-.first-div-container {
-  background: url("https://i.ibb.co/kGQzYYL/thumb-1920-909912.png") no-repeat;
+.home {
+  background: url("https://i.ibb.co/kGQzYYL/thumb-1920-909912.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100vw;
   height: 100vh;
-  overflow: none;
 }
 
 .h1-tlt {
@@ -34,7 +38,20 @@ $background-1: rgb(50, 50, 53);
   height: 44px;
   border: none;
   border-radius: 20px;
-  width: 460px;
+  width: 95%;
+  color: #fff;
+  background-color: $blurple;
+  outline: none;
+  font-size: 16px;
+}
+
+.btn-2 {
+  cursor: pointer;
+  margin: 2%;
+  height: 44px;
+  border: none;
+  border-radius: 20px;
+  width: 400px;
   color: #fff;
   background-color: $blurple;
   outline: none;
@@ -100,6 +117,9 @@ $background-1: rgb(50, 50, 53);
     position: relative;
     top: 20px;
     font-size: 24px;
+    @media screen and (max-width: 848px) {
+      font-size: 19px;
+   }
   }
   & .ImageSelectTLT {
     display: flex;

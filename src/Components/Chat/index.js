@@ -72,7 +72,6 @@ export default function ChatPage({ name, userIMG }) {
     );
   };
 
-
   return (
     <Main>
       <VerticalBar>

@@ -12,7 +12,7 @@ export default function Login({ history, name, setname }) {
     history.push('/userImage')
   };
   return (
-    <div className="first-div-container">
+    <div className="home first-div-container">
       <div className="title-container">
         <h1 className="h1-tlt">Board the rocket!</h1>
       </div>

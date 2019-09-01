@@ -17,6 +17,10 @@ export const FluxInput = styled.input`
     outline: none;
     opacity: 0.8;
     padding: 5px;
+    
+   @media screen and (max-width: 848px) {
+    width: 350px;
+   }
 `;
 
 export const InputContainer = styled.div`

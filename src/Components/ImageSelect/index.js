@@ -47,7 +47,7 @@ export default function ImageSelect({ history, name, setUserImg }) {
             alt="img4"
           />
           <div className="btn-containerImage">
-            <button onClick={handleSubmit} className="btn-1">GO!</button>
+            <button onClick={handleSubmit} className="btn-2">GO!</button>
           </div>
         </div>
       </div>
