@@ -14,4 +14,5 @@
 1 - Clone from github.
 2 - Run yarn install.
 3 - Run yarn start.
-4 - Enjoy.```
+4 - Enjoy. 
+```
