@@ -1,6 +1,6 @@
 ## Real-time-chat
 
-``A clone of the DISCORD with a chat in real-time.``
+``A chat in real-time with discord UI.``
 
 ## Tools used
 ```
