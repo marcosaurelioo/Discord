@@ -1,6 +1,10 @@
 # Real-time-chat
 
-``A chat in real-time with discord UI.``
+``A chat in real-time created with discord UI.``
+
+## You can see the app here:
+
+https://whatsapp122.netlify.com/
 
 ## Tools used
 ```
