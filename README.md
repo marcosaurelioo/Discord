@@ -10,7 +10,7 @@
 ```
 ## Preview 
 
-![optional text](src/assets/preview.PNG)
+![optional text](src/assets/preview2.PNG)
 
 ## How run my app
 ```
