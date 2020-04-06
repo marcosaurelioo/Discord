@@ -1,4 +1,4 @@
-## Real-time-chat
+# Real-time-chat
 
 ``A chat in real-time with discord UI.``
 
@@ -8,6 +8,9 @@
 2 - SASS
 3 - Styled-components
 ```
+## Preview 
+
+![optional text](src/assets/preview.PNG)
 
 ## How run my app
 ```

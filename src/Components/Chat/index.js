@@ -17,9 +17,6 @@ export default function ChatPage({ name, userIMG }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('')
 
-  const hour = new Date().getHours();
-  const minutes = new Date().getMinutes()
-
   const messagesEndRef = React.createRef(null);
 
   useEffect(() => {
@@ -65,7 +62,7 @@ export default function ChatPage({ name, userIMG }) {
   };
 
   function loadRealTime() {
-    const io = socket('https://real-time-chat007.herokuapp.com/');
+    const io = socket('https://realtimechat22.herokuapp.com');
 
     io.on('newMessage', data =>
       setMessages(data)
@@ -113,7 +110,6 @@ export default function ChatPage({ name, userIMG }) {
             <ul className="chatDiv" key={index}>
               <img className="chatImage" src={chat.img} alt="" />
               <div id="div.chat" ref={messagesEndRef} className="divConversation">
-                <span className="hour">Today at {hour}:{minutes}</span>
                 <span className="chatName">{chat.nickname}</span>
                 <span className="messages">{chat.msg}</span>
               </div>
