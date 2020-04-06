@@ -91,7 +91,7 @@ p {
 .input {
   position: relative;
   top: 10px;
-  width: 950px;
+  width: 900px;
   height: 30px;
   background: $background-header-footer;
   border: none;
@@ -101,9 +101,12 @@ p {
   color: $color-white;
   font-family: $font-family-text;
   font-weight: bold;
-  @media screen and (max-width: 848px) {
-    width: 450px;  
+  @media screen and (max-width: 1270px) {
+    width: 550px;  
  }
+ @media screen and (max-width: 948px) {
+  width: 450px;  
+}
 }
 
 .chatImage {

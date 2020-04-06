@@ -49,6 +49,15 @@ export const ChatBar = styled.div`
    height: 61px;
    width: 100%;
    box-shadow: 12px solid rgb(32, 34, 36);
+   @media screen and (max-width: 1300px) {
+   height: 60px;
+   }
+   @media screen and (max-width: 1270px) {
+   height: 60px;
+   }
+   @media screen and (max-width: 848px) {
+   height: 61px;
+   }
 `;
 
 export const Conversation = styled.div`
