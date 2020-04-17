@@ -9,59 +9,66 @@ $background-1: rgb(50, 50, 53);
 * {
   margin: 0;
   padding: 0;
+  outline: none;
 }
 
 .home {
-  background: url("https://i.ibb.co/kGQzYYL/thumb-1920-909912.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url("https://www.advertise.racing/img/discord_dark.png");
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
 }
 
 .h1-tlt {
-  display: flex;
-  justify-content: center;
   font-weight: 700;
   font-size: 35px;
+  margin-top: 30px;
   color: #fff;
   font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
-  position: relative;
-  top: 50px;
+}
+
+.LoginForms {
+  display: flex;
+  justify-content: center;
 }
 
 .btn-1 {
-  cursor: pointer;
-  margin: 2%;
   height: 44px;
-  border: none;
   border-radius: 20px;
-  width: 95%;
-  color: #fff;
-  background-color: $blurple;
-  outline: none;
   font-size: 16px;
+  width: 30%;
+  margin: 10px;
+  border: none;
+  align-self: center;
+  color: #fff;
+  cursor: pointer;
+  background-color: $blurple;
+  @media screen and (max-width: 848px) {
+    width: 80%;
+  }
 }
 
 .btn-2 {
-  cursor: pointer;
+  font-size: 16px;
   margin: 2%;
   height: 44px;
-  border: none;
   border-radius: 20px;
-  width: 400px;
+  width: 30%;
+  border: none;
   color: #fff;
   background-color: $blurple;
-  outline: none;
-  font-size: 16px;
+  cursor: pointer;
+  @media screen and (max-width: 848px) {
+    width: 60%;
+  }
 }
 
 .img1 {
-  height: 200px;
-  top: 45%;
-  margin-left: 5%;
+  height: 190px;
   -webkit-animation-name: float-landing-2wj_IS;
   animation-name: float-landing-2wj_IS;
   -webkit-animation-duration: 1.5s;
@@ -77,8 +84,6 @@ $background-1: rgb(50, 50, 53);
 .img-container {
   display: flex;
   justify-content: center;
-  position: relative;
-  top: 110px;
 }
 
 @keyframes float-landing-2wj_IS {
@@ -107,7 +112,7 @@ $background-1: rgb(50, 50, 53);
 
 .ImageSelect-container {
   background: white linear-gradient(135deg, $background-1, $color-black);
-  height: 100vh;
+  min-height: 100vh;
   -webkit-animation: slide-in-left-alt 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: slide-in-left-alt 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   & .ImageSelect-container-Title {
@@ -130,6 +135,15 @@ $background-1: rgb(50, 50, 53);
     justify-content: center;
     position: relative;
     top: 60px;
+    @media screen and (max-width: 648px) {
+      flex-wrap: wrap;
+      margin-left: 55px;
+      margin-right: 55px;
+      & .selectImageAppear {
+        width: 30%;
+        height: auto;
+      }
+   }
   }
   & .selectImageAppear {
     margin: 10px;
@@ -140,9 +154,8 @@ $background-1: rgb(50, 50, 53);
 
 .btn-containerImage {
   display: flex;
-  position: absolute;
-  top: 150px;
   justify-content: center;
+  margin-top: 100px;
 }
 
 .grow {

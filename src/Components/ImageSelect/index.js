@@ -46,9 +46,9 @@ export default function ImageSelect({ history, name, setUserImg }) {
             src="https://pbs.twimg.com/media/Du6-TLLU0AEbIx6.jpg"
             alt="img4"
           />
-          <div className="btn-containerImage">
-            <button onClick={handleSubmit} className="btn-2">GO!</button>
-          </div>
+        </div>
+        <div className="btn-containerImage">
+          <button onClick={handleSubmit} className="btn-2">GO!</button>
         </div>
       </div>
     </>

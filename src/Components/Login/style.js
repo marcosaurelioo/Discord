@@ -1,30 +1,22 @@
 import styled from 'styled-components';
 
 export const FluxComponent = styled.div`
-    outline: none;
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 110px;
+    align-content: center;
+    flex-direction:column;
+    width: 100%; 
 `;
 
 export const FluxInput = styled.input`
-    width: 450px;
+    width: 30%;
+    margin: 5px;
     height: 33px;
-    border: none;
-    margin: 10px;
     border-radius: 20px;
-    outline: none;
-    opacity: 0.8;
     padding: 5px;
-    
-   @media screen and (max-width: 848px) {
-    width: 350px;
-   }
-`;
-
-export const InputContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    align-self: center;
+    border: none;
+    @media screen and (max-width: 848px) {
+      width: 80%;
+    }
 `;
