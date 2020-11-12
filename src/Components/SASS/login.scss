@@ -13,27 +13,24 @@ $background-1: rgb(50, 50, 53);
 }
 
 .home {
-  background: url("https://www.advertise.racing/img/discord_dark.png");
+  background: url('../../assets/background.png') no-repeat
+    center center fixed;
   background-size: cover;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-.title-container {
+.content {
+  height: 100%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-}
-
-.h1-tlt {
-  font-weight: 700;
-  font-size: 35px;
-  margin-top: 30px;
-  color: #fff;
-  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .LoginForms {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .btn-1 {
@@ -99,13 +96,9 @@ $background-1: rgb(50, 50, 53);
 
 @keyframes slide-in-left-alt {
   0% {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
     opacity: 1;
   }
 }
@@ -113,8 +106,7 @@ $background-1: rgb(50, 50, 53);
 .ImageSelect-container {
   background: white linear-gradient(135deg, $background-1, $color-black);
   min-height: 100vh;
-  -webkit-animation: slide-in-left-alt 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: slide-in-left-alt 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: slide-in-left-alt 1s cubic-bezier(0.39, 0.575, 0.565, 1);
   & .ImageSelect-container-Title {
     font-family: $font-family-text;
     color: $color-white;
@@ -124,7 +116,7 @@ $background-1: rgb(50, 50, 53);
     font-size: 24px;
     @media screen and (max-width: 848px) {
       font-size: 19px;
-   }
+    }
   }
   & .ImageSelectTLT {
     display: flex;
@@ -137,13 +129,11 @@ $background-1: rgb(50, 50, 53);
     top: 60px;
     @media screen and (max-width: 648px) {
       flex-wrap: wrap;
-      margin-left: 55px;
-      margin-right: 55px;
       & .selectImageAppear {
         width: 30%;
         height: auto;
       }
-   }
+    }
   }
   & .selectImageAppear {
     margin: 10px;
@@ -161,19 +151,15 @@ $background-1: rgb(50, 50, 53);
 .grow {
   display: inline-block;
   vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  -webkit-transition-property: transform;
   transition-property: transform;
+  border: 2px solid transparent;
+  height: 105px;
 }
-.grow:hover,
-.grow:focus,
-grow:after {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+.grow:hover {
+  transition: all 0.3s ease;
   border: 2px solid #00fa9a;
 }
 

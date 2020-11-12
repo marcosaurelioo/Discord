@@ -30,7 +30,6 @@ export default function ChatPage({ name, userIMG }) {
   async function loadAllMessages() {
     try {
       const response = await api.get('/mensagens');
-   
       setMessages(response.data);
     } catch (e)
      {
